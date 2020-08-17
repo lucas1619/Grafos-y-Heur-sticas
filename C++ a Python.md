@@ -99,3 +99,75 @@ foo = 10;
 - Una analogia que nos va a permitir entender la diferencia en el uso de las variables es la siguiente: Imagina que te estas mudando quieres almacenar objetos y tienes 2 cajas para poder hacer dicha tarea. A la primera le escribes con un plumon antes de almacenar tus objetos que tipo de objetos va a contener tu caja, por ejemplo: juguetes y luego para diferenciar esa caja de otras que tengan el tipo de objetos rotulados le colocas un nombre para que puedas diferenciarla del resto por ejemplo: jueguetes de la infancia y una vez rotulado de esa forma recien comienzas a meter tus juguetes de la infancia dentro de tu caja. Mientras que en la otra caja por apuros de tiempo simplemente le colocas un nombre que te permita diferenciar que caja es y metes los objetos que quieras. Sin embargo si colocaste multiples objetos de distinto tipo en la segunda caja a la hora de desempacar se te vas a demorar mas en colocar en su sitio los objetos que almacenaste mientras que en la primera caja se te va a hacer muy facil desempacar porque ya sabes de ante mano que tipo de objetos hay dentro de esa caja. 
 # Operaciones Aritmeticas
 ---
+- La programacion y en general las computadoras en sus inicios se usaba como apoyo al avance de la ciencia para poder resolver calculos grandes en un tiempo record. Esta es la razon por la cual todo lenguaje de programacion tiene soporte con las operaciones aritmeticas.
+- Las operaciones básicas como la suma, resta, division, multiplicacion y residuo de una division son las mismas tanto en **C++** como en **Python**, se usan los simbolos +, -, *, / y % respectivamente.
+- Sin embargo **Python** nos ofrece un soporte nativo para las potencias que **C++** no lo tiene. Por ejemplo si quiero elevar 2 al cubo en **C++** tendria que hacer uso de la funcion pow y la libreria cmath:
+```
+#include<cmath>
+cout << pow(2, 3); //Esto me imprime en consola 8 que es 2 al cubo
+```
+- Mientras que en **Phyton** haria lo siguiente:
+```
+print(2**3) //Esto me imprime en consola 8 que es 2 al cubo
+```
+- Ademas, **Python** nos ofrece un operador mas que es el de division entera, es decir del resultado de una division solo nos retorna la parte entera. Esta funcionalidad **C++** dentro de sus operadores no la tiene. Si quisiera hacer lo mismo en **C++** tendria que hacer uso de la funcion trunc y la libreria cmath:
+```
+#include<cmath>
+
+cout<<trunc(4/3) //Esto me imprime en consola 1 que es la parte entera de la division de 4 y 3
+```
+- Mientras que en **Phyton** haria lo siguiente:
+```
+print(4//3) //Esto me imprime en consola 1 que es la parte entera de la division de 4 y 3
+```
+- En cuanto a sacar radicales, en **C++** tenemos solamente una funcion para sacar la raiz cuadrada que se llama sqrt pero para usarla debemos usar la libraria cmath:
+```
+#include<cmath>
+cout << sqrt(4); //Esto me imprime en consola 2 que es la raiz cuadrada de 4
+```
+- Pero si nosotros queremos sacar mas radicales por ejemplo raiz cubica o cuarta no existe una funcion que pueda realizar dicha tarea. Sin embargo, podemos hacer uso de la **teoria de radicales**. Una propiedad de esta teoria dice que toda raiz se puede expresar como una potencia y esta potencia debe ser el radicando elevado a la inversa del indice. Es decir, si tengo 3√8 lo puedo expresar como: 8^(1/3).
+```
+#include<cmath>
+cout << pow(8, (double)1/3); //Esto me imprime en consola 2 que es la raiz cubica de 8
+```
+- Para **Python** nos sucede lo mismo, tenemos una funcion que esta dentro de la libreria **Math** que debemos de incluirla dentro de nuestro codigo (para mas informacion consultar la [documentacion de Math](https://docs.python.org/3/library/math.html)) que se llama sqrt.
+- Para importar cualquier libreria en **C++** usabamos la sintaxis:
+> #include<(nombre de la libreria)>
+- Mientras que en **Python** usamos la siguiente sintaxis:
+> import (nombre de la libreria)
+- Por lo que el codigo completo para sacar la raiz cuadrada de un numero en **Python** seria:
+```
+import math
+print(math.sqrt(4)); //Esto me imprime en consola 2 que es la raiz cuadrada de 2
+```
+- Y tambien sucede lo mismo para sacar mas radicales, no tenemos una funcion para poder sacar la raiz cúbica pero si podemos hacer uso de la teoria de radicales:
+```
+#include<cmath>
+print(8 ** float(1/3)); //Esto me imprime en consola 2 que es la raiz cubica de 8
+```
+- Como podran observar, para sacar raices que no sea la raiz cuadrada hacemos un parseo con un **tipo de dato** para hallar la inversa del indice. Esto nos da paso al tema de los **tipos de datos** que soporta **Python**.
+# Tipos de datos
+---
+- Si bien, **Python** tiene un **tipado debil** eso no quita que tenga tipos de datos que le permita diferenciar a su interprete de que dato estamos 'hablando'.
+- Los tipos de datos en **Python** son los siguientes:
+    1. Numericos
+        + Enteros (int)
+        `entero = 10`
+        + Coma flotante (float)
+        `flotante = 10.`
+        + Complejos (complex)
+        `complejo = 10j`
+    2. Booleanos (bool)
+    `booleano = true`
+    3. Cadenas de caracteres (str)
+        + Cadenas cortas
+            `corta = 'Hello world'`
+        + Cadenas largas
+            `larga = '''Cadena larga muy larga :v''' `    
+- Para parsear de un tipo de dato a otro solo se pone el nombre del tipo de dato como una funcion. Ejemplo:
+```
+texto = '10'
+texto-a-entero = int(texto)
+```
+- Es importante mencionar que en algunos libros y tutoriales mencionan un tipo de dato llamado entero long (algo similar como long long en **C++**). Sin embargo en la convencion [PEP-237](https://www.python.org/dev/peps/pep-0237/) se unificaron los tipos de datos int y long int en uno solo: int.
+-           
