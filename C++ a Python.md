@@ -149,7 +149,7 @@ print(8 ** float(1/3)); //Esto me imprime en consola 2 que es la raiz cubica de 
 # Tipos de datos
 ---
 - Si bien, **Python** tiene un **tipado debil** eso no quita que tenga tipos de datos que le permita diferenciar a su interprete de que dato estamos 'hablando'.
-- Los tipos de datos en **Python** son los siguientes:
+- Los tipos de datos que yo considero mas importantes en **Python** son los siguientes:
     1. Numericos
         + Enteros (int)
         `entero = 10`
@@ -158,7 +158,7 @@ print(8 ** float(1/3)); //Esto me imprime en consola 2 que es la raiz cubica de 
         + Complejos (complex)
         `complejo = 10j`
     2. Booleanos (bool)
-    `booleano = true`
+    `booleano = True`
     3. Cadenas de caracteres (str)
         + Cadenas cortas
             `corta = 'Hello world'`
@@ -170,4 +170,25 @@ texto = '10'
 texto-a-entero = int(texto)
 ```
 - Es importante mencionar que en algunos libros y tutoriales mencionan un tipo de dato llamado entero long (algo similar como long long en **C++**). Sin embargo en la convencion [PEP-237](https://www.python.org/dev/peps/pep-0237/) se unificaron los tipos de datos int y long int en uno solo: int.
--           
+- Para mas informacion con respecto a los tipos de datos revisar la [documentacion oficial de Python](https://docs.python.org/3/library/datatypes.html).
+- Asi como tenemos las operaciones aritmeticas que nos sirven para operar los tipos de datos numericos tambien tenemos los operadores lógicos y booleanos para operar con los tipos de datos booleanos y los operadores de texto para operar con las cadenas de caracteres.
+
+# Operadores logicos y booleanos
+---
+- Son los simbolos que nos **operan** o **retornan** datos de tipo booleano. 
+- Los operadores logicos son los simbolos que nos **retornan** un tipo de dato booleano. Tanto en **C++** como en **Python** se usan los mismos simbolos:
+    + Para hacer una comparacion de igualdad: ==
+    + Para hacer una comparacion de diferencia: !=
+    + Para hacer una comparacion de menor: <
+    + Para hacer una comparacion de mayor: >
+    + Para hacer una comparacion de menor igual: <=
+    + Para hacer una comparacion de mayor igual: >=
+- Mientras que los operadores booleanos si hay una diferencia entre **C++** y **Python**. Primero mencionare como es en **C++**:
+    + Para usar el operador AND: &&
+    + Para usar el operador OR: ||
+    + Para usar el operador NOT: !
+- Mientras que en **Python** son de la siguiente forma:
+    + Para usar el operador AND: and
+    + Para usar el operador OR: or
+    + Para usar el operador NOT: not
+- Como nos damos cuenta **Python** tiene una sintaxis mucho mas amigable que **C++**, parece como si escribieramos un texto en lugar de un codigo.    
