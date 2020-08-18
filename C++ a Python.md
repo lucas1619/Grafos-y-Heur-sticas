@@ -191,4 +191,33 @@ texto-a-entero = int(texto)
     + Para usar el operador AND: and
     + Para usar el operador OR: or
     + Para usar el operador NOT: not
-- Como nos damos cuenta **Python** tiene una sintaxis mucho mas amigable que **C++**, parece como si escribieramos un texto en lugar de un codigo.    
+- Como nos damos cuenta **Python** tiene una sintaxis mucho mas amigable que **C++**, parece como si escribieramos un texto en lugar de un codigo.
+# Operadores de texto
+---
+- Tecnicamente, existe solamente un operador para los textos que es el operador de concatenacion. Tanto para **C++** como para **Python** ese operador lleva como simbolo: +. Ejemplo:
+```
+textoA = 'Hello'
+textoB = 'world'
+textoAB = textoA + textoB
+print(textoAB) //imprimira 'Hello world'
+```
+- Sin embargo, **Python** nos ofrece una gran variedad de funciones nativas para tratar las cadenas de texto. Yo solo mencionare las que a mi juicio son las mas importantes:
+    + **.upper()**: Convierte todos los caracteres de la cadena a MAYUSCULAS
+    + **.lower()**: Convierte todos los caracteres de la cadena a MINUSCULAS
+    + **.capitalize()**: Convierte solo la primera letra despues de un espacio a MAYUSCULA
+    + **.strip()**: Elimina los espacios en blanco de mi cadena de texto.
+    + **.find(string)**: Recibe como parametro un string y te devuelve la posicion en donde se encuentra ese string en la cadena a buscar. Si no encuentra ese string en la cadena retorna -1.
+    + **.split(string = ' ')**: Recibe como parametro un string que va a ser el separador y nos divide la cadena en varias cadenas mas pequeñas teniendo al separador como la referencia. Si no le pasamos ningun parametro tomara como default el espacio.
+    + **.replace(string, string)**: Recibe dos parametros, el primero lo llamaremos old y el segundo new. Esta funcion tiene dos etapas, primero es la busqueda del old en la cadena donde ejecutamos la funcion, una vez que lo encuentra reemplaza ese valor por el new. Cabe destacar que reemplaza todas las coincidencias que encuentre.
+- Para usar estas funciones debes usar la siguiente sintaxis:
+> (nombre de la variable string).(nombre de la funcion con sus parametros)
+- Ejemplo si queremos convertir un texto a mayusculas:
+```
+textoA = 'Hello'
+textoB = textoA.upper()
+print(textoB) //imprimira 'HELLO'
+```
+- Para ver todos los metodos consultar esta [documentacion](https://www.w3schools.com/python/python_ref_string.asp)
+
+# Funciones
+
