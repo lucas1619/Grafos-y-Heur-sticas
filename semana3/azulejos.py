@@ -3,8 +3,10 @@ import math
 color = 0
 def azulejos():
   global color
-  piso = [[0 for x in range(8)] for x in range(8)]
-  piso[random.randint(0, 7)][random.randint(0, 7)] = color
+  elevacion = int(input("Ingresa el exponente de 2: "))
+  lado = 2 ** elevacion
+  piso = [[0 for x in range(lado)] for x in range(lado)]
+  piso[random.randint(0, lado - 1)][random.randint(0, lado - 1)] = color
   def tieneColor(xo, xn, yo, yn):
     for y in range(yo, yn+1):
       for x in range(xo, xn + 1):
@@ -32,7 +34,7 @@ def azulejos():
     divide(supxn, xn, yo, infyn)
     divide(xo, infxn, supyn, yn)
     divide(supxn, xn, supyn, yn)
-  divide(0, 7, 0, 7)
+  divide(0, lado - 1, 0, lado - 1)
   for x in piso:
     for y in x:
       print(f'{y}\t', end="")
