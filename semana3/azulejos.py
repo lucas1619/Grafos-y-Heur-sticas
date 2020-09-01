@@ -11,7 +11,7 @@ def azulejos():
   def tieneColor(xo, xn, yo, yn):
     for y in range(yo, yn+1):
       for x in range(xo, xn + 1):
-        if piso[x][y] > 0:
+        if piso[x][y] >= 0:
           return True
     return False      
   def divide(xo, xn, yo, yn):
