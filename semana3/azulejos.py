@@ -6,7 +6,7 @@ def azulejos():
   global color
   elevacion = int(input("Ingresa el exponente de 2: "))
   lado = 2 ** elevacion
-  piso = [[0 for x in range(lado)] for x in range(lado)]
+  piso = [[-1 for x in range(lado)] for x in range(lado)]
   piso[random.randint(0, lado - 1)][random.randint(0, lado - 1)] = color
   def tieneColor(xo, xn, yo, yn):
     for y in range(yo, yn+1):
@@ -24,20 +24,29 @@ def azulejos():
     supyn = infyn + 1
     color += 1
     if tieneColor(xo, infxn, yo, infyn) == False:
-      piso[infxn][infyn] = color
+      if piso[infxn][infyn] < 0:
+        piso[infxn][infyn] = color
     if tieneColor(supxn, xn, yo, infyn) == False:
-      piso[supxn][infyn] = color
+      if piso[supxn][infyn] < 0: 
+        piso[supxn][infyn] = color
     if tieneColor(xo, infxn, supyn, yn) == False:
-      piso[infxn][supyn] = color
+      if piso[infxn][supyn] < 0:
+        piso[infxn][supyn] = color
     if tieneColor(supxn, xn, supyn, yn) == False:
-      piso[supxn][supyn] = color
+      if piso[supxn][supyn] < 0: 
+        piso[supxn][supyn] = color
     divide(xo, infxn, yo, infyn)
     divide(supxn, xn, yo, infyn)
     divide(xo, infxn, supyn, yn)
     divide(supxn, xn, supyn, yn)
   divide(0, lado - 1, 0, lado - 1)
   colores = []
-  for x in range(color):
+  colores.append({
+      'red': 0,
+      'green' : 0,
+      'blue' : 0
+  })
+  for x in range(1, color + 1):
     colores.append({
         'red': random.randint(0, 255),
         'green' : random.randint(0, 255),
@@ -48,7 +57,7 @@ def azulejos():
   draw = ImageDraw.Draw(im)
   for x, a in enumerate(piso):
     for y, b in enumerate(a):
-      draw.rectangle((x*tam, y*tam,tam*(x + 1), tam*(y + 1)), fill=(colores[b - 1]['red'], colores[b - 1]['green'], colores[b - 1]['blue']), outline=(colores[b - 1]['red'], colores[b - 1]['green'], colores[b - 1]['blue']))
+      draw.rectangle((x*tam, y*tam,tam*(x + 1), tam*(y + 1)), fill=(colores[b]['red'], colores[b]['green'], colores[b]['blue']), outline=(colores[b]['red'], colores[b]['green'], colores[b]['blue']))
   name = input("Ingresa el nombre que le pondras a tu imagen:")
   im.save(f'{name}.jpg', quality=95)      
 azulejos()
